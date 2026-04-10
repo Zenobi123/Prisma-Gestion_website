@@ -4,6 +4,125 @@ import { BlogPost, BlogPostStatus } from "@/types/blog";
 
 const DEFAULT_BLOG_POSTS: BlogPost[] = [
   {
+    id: -10,
+    title: "Veille impots.cm : dernières publications fiscales",
+    excerpt: "Consultez rapidement les derniers documents, actualités et notes publiés sur impots.cm.",
+    content: `
+      <h2>Dernières parutions de impots.cm</h2>
+      <p>
+        Cet article de veille vous permet d'accéder directement aux informations les plus récentes publiées
+        par la Direction Générale des Impôts du Cameroun.
+      </p>
+      <div class="bg-gray-50">
+        <h3>Accès rapide</h3>
+        <ul>
+          <li><a href="https://www.impots.cm/" target="_blank" rel="noopener noreferrer">Page d'accueil impots.cm</a></li>
+          <li><a href="https://www.impots.cm/fr/actualites" target="_blank" rel="noopener noreferrer">Rubrique actualités</a></li>
+          <li><a href="https://www.impots.cm/fr/documentations" target="_blank" rel="noopener noreferrer">Rubrique documents</a></li>
+        </ul>
+      </div>
+      <p>
+        Astuce: ouvrez les rubriques ci-dessus pour identifier immédiatement la dernière publication.
+      </p>
+    `,
+    author: "PRISMA GESTION",
+    publishDate: "2026-04-10",
+    status: "Publié",
+    image: "/placeholder.svg",
+    slug: "veille-impots-cm-dernieres-publications",
+    tags: ["Veille réglementaire", "Fiscalité"],
+    seoTitle: "Veille impots.cm : dernières publications fiscales",
+    seoDescription: "Suivez les dernières publications, actualités et documents publiés sur impots.cm."
+  },
+  {
+    id: -11,
+    title: "Veille cnps.cm : dernières actualités sociales",
+    excerpt: "Retrouvez le dernier élément publié sur cnps.cm : communiqué, document ou news officielle.",
+    content: `
+      <h2>Dernières parutions de cnps.cm</h2>
+      <p>
+        Cette veille centralise l'accès aux contenus récents diffusés par la CNPS.
+      </p>
+      <div class="bg-gray-50">
+        <h3>Accès rapide</h3>
+        <ul>
+          <li><a href="https://www.cnps.cm/" target="_blank" rel="noopener noreferrer">Page d'accueil cnps.cm</a></li>
+          <li><a href="https://www.cnps.cm/actualites/" target="_blank" rel="noopener noreferrer">Rubrique actualités</a></li>
+          <li><a href="https://www.cnps.cm/documentation/" target="_blank" rel="noopener noreferrer">Rubrique documentation</a></li>
+        </ul>
+      </div>
+      <p>
+        Vérifiez ces sections pour consulter la publication la plus récente.
+      </p>
+    `,
+    author: "PRISMA GESTION",
+    publishDate: "2026-04-10",
+    status: "Publié",
+    image: "/placeholder.svg",
+    slug: "veille-cnps-cm-dernieres-actualites",
+    tags: ["Veille réglementaire", "Social"],
+    seoTitle: "Veille cnps.cm : dernières actualités sociales",
+    seoDescription: "Accédez rapidement aux dernières actualités et documents publiés sur cnps.cm."
+  },
+  {
+    id: -12,
+    title: "Veille egecam.cm : nouveaux documents et annonces",
+    excerpt: "Un point d'accès direct vers la dernière publication visible sur egecam.cm.",
+    content: `
+      <h2>Dernières parutions de egecam.cm</h2>
+      <p>
+        Utilisez cette page pour accéder en un clic aux nouveautés publiées par EGECAM.
+      </p>
+      <div class="bg-gray-50">
+        <h3>Accès rapide</h3>
+        <ul>
+          <li><a href="https://egecam.cm/" target="_blank" rel="noopener noreferrer">Page d'accueil egecam.cm</a></li>
+          <li><a href="https://egecam.cm/category/actualites/" target="_blank" rel="noopener noreferrer">Rubrique actualités</a></li>
+          <li><a href="https://egecam.cm/category/documents/" target="_blank" rel="noopener noreferrer">Rubrique documents</a></li>
+        </ul>
+      </div>
+      <p>
+        Consultez ces sections pour repérer le dernier contenu publié.
+      </p>
+    `,
+    author: "PRISMA GESTION",
+    publishDate: "2026-04-10",
+    status: "Publié",
+    image: "/placeholder.svg",
+    slug: "veille-egecam-cm-documents-annonces",
+    tags: ["Veille", "Institutionnel"],
+    seoTitle: "Veille egecam.cm : nouveaux documents et annonces",
+    seoDescription: "Suivi des dernières publications de egecam.cm (documents, actualités, annonces)."
+  },
+  {
+    id: -13,
+    title: "Veille DGICAM Facebook : dernière publication",
+    excerpt: "Suivez la dernière publication postée sur la page Facebook officielle DGICAM.",
+    content: `
+      <h2>Dernières parutions Facebook DGICAM</h2>
+      <p>
+        Cette veille pointe vers la page officielle DGICAM pour consulter le dernier post publié.
+      </p>
+      <div class="bg-gray-50">
+        <h3>Lien direct</h3>
+        <ul>
+          <li><a href="https://web.facebook.com/DGICAM" target="_blank" rel="noopener noreferrer">Page Facebook DGICAM</a></li>
+        </ul>
+      </div>
+      <p>
+        Le premier post affiché en haut du fil correspond généralement à la publication la plus récente.
+      </p>
+    `,
+    author: "PRISMA GESTION",
+    publishDate: "2026-04-10",
+    status: "Publié",
+    image: "/placeholder.svg",
+    slug: "veille-facebook-dgicam-derniere-publication",
+    tags: ["Veille", "Réseaux sociaux"],
+    seoTitle: "Veille DGICAM Facebook : dernière publication",
+    seoDescription: "Accès rapide à la dernière publication de la page Facebook DGICAM."
+  },
+  {
     id: -1,
     title: "Les avantages de la comptabilité en ligne",
     excerpt: "Pourquoi passer à la comptabilité informatisée en 2025.",
@@ -79,8 +198,26 @@ async function seedDefaultBlogPosts(existingSlugs: string[]) {
   }
 }
 
+async function ensureDefaultBlogPostsSeeded(): Promise<void> {
+  const { data: slugRows, error } = await supabase
+    .from("blog_posts")
+    .select("slug");
+
+  if (error) {
+    console.error("Impossible de vérifier les articles par défaut:", error);
+    return;
+  }
+
+  const existingSlugs = (slugRows || [])
+    .map((row) => row.slug)
+    .filter((slug): slug is string => typeof slug === "string");
+
+  await seedDefaultBlogPosts(existingSlugs);
+}
+
 export const getBlogPosts = async (): Promise<BlogPost[]> => {
   try {
+    await ensureDefaultBlogPostsSeeded();
     console.log("Récupération des articles depuis Supabase...");
     const { data, error } = await supabase
       .from('blog_posts')
@@ -129,6 +266,7 @@ export const getBlogPosts = async (): Promise<BlogPost[]> => {
 
 export const getPublishedBlogPosts = async (): Promise<BlogPost[]> => {
   try {
+    await ensureDefaultBlogPostsSeeded();
     const { data, error } = await supabase
       .from('blog_posts')
       .select('*')
