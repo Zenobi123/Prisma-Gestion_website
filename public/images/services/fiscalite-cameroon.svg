@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800" role="img" aria-label="Fiscalité au Cameroun">
+  <rect width="1200" height="800" fill="#111827"/>
+  <rect x="0" y="0" width="1200" height="90" fill="#007a5e"/>
+  <rect x="0" y="90" width="1200" height="90" fill="#ce1126"/>
+  <rect x="0" y="180" width="1200" height="90" fill="#fcd116"/>
+
+  <g transform="translate(140,240)">
+    <rect x="0" y="0" width="920" height="430" rx="24" fill="#ffffff" opacity="0.1"/>
+    <rect x="90" y="80" width="350" height="250" rx="14" fill="#f9fafb"/>
+    <line x1="120" y1="140" x2="390" y2="140" stroke="#94a3b8" stroke-width="12"/>
+    <line x1="120" y1="190" x2="390" y2="190" stroke="#94a3b8" stroke-width="12"/>
+    <line x1="120" y1="240" x2="320" y2="240" stroke="#94a3b8" stroke-width="12"/>
+    <circle cx="570" cy="180" r="90" fill="#fcd116"/>
+    <text x="535" y="198" fill="#111827" font-size="72" font-family="Arial, sans-serif" font-weight="700">%</text>
+    <text x="90" y="55" fill="#f8fafc" font-size="50" font-family="Arial, sans-serif" font-weight="700">Fiscalité</text>
+    <text x="90" y="385" fill="#cbd5e1" font-size="28" font-family="Arial, sans-serif">Conformité OHADA &amp; obligations fiscales locales</text>
+  </g>
+</svg>

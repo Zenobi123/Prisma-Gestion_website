@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800" role="img" aria-label="Ressources humaines au Cameroun">
+  <rect width="1200" height="800" fill="#0b1020"/>
+  <circle cx="180" cy="130" r="220" fill="#007a5e" opacity="0.35"/>
+  <circle cx="1030" cy="670" r="260" fill="#ce1126" opacity="0.28"/>
+
+  <g transform="translate(210,170)">
+    <rect x="0" y="0" width="780" height="460" rx="24" fill="#ffffff" opacity="0.1"/>
+    <circle cx="180" cy="180" r="56" fill="#fcd116"/>
+    <circle cx="390" cy="180" r="56" fill="#fcd116"/>
+    <circle cx="600" cy="180" r="56" fill="#fcd116"/>
+
+    <path d="M100 320 Q180 250 260 320" fill="none" stroke="#22c55e" stroke-width="18" stroke-linecap="round"/>
+    <path d="M310 320 Q390 250 470 320" fill="none" stroke="#22c55e" stroke-width="18" stroke-linecap="round"/>
+    <path d="M520 320 Q600 250 680 320" fill="none" stroke="#22c55e" stroke-width="18" stroke-linecap="round"/>
+
+    <text x="70" y="85" fill="#f8fafc" font-size="50" font-family="Arial, sans-serif" font-weight="700">Ressources Humaines</text>
+    <text x="70" y="400" fill="#cbd5e1" font-size="28" font-family="Arial, sans-serif">Talents, paie et conformité sociale au Cameroun</text>
+  </g>
+</svg>
