@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { ServiceType } from "@/types/services";
+import { getServiceImage } from "@/utils/serviceImages";
 import { useToast } from "@/hooks/use-toast";
 
 const defaultServices: ServiceType[] = [
@@ -10,28 +11,28 @@ const defaultServices: ServiceType[] = [
     title: 'Comptabilité',
     description: 'Services complets de tenue comptable et reporting financier pour assurer la conformité et la clarté de vos opérations financières.',
     items: ['Tenue comptable', 'Révision comptable', 'Reporting financier', 'États financiers'],
-    image: '/placeholder.svg'
+    image: getServiceImage('accounting')
   },
   {
     id: 'finance',
     title: 'Finance',
     description: 'Conseil stratégique et gestion de trésorerie pour optimiser les ressources financières de votre entreprise et sécuriser sa croissance.',
     items: ['Gestion de trésorerie', 'Budgétisation', 'Analyse financière', 'Financement'],
-    image: '/placeholder.svg'
+    image: getServiceImage('finance')
   },
   {
     id: 'tax',
     title: 'Fiscalité',
     description: 'Optimisation fiscale et conformité pour minimiser votre charge fiscale tout en respectant les obligations légales et réglementaires.',
     items: ['Déclarations fiscales', 'Optimisation fiscale', 'Conseils TVA', 'Contrôle fiscal'],
-    image: '/placeholder.svg'
+    image: getServiceImage('tax')
   },
   {
     id: 'hr',
     title: 'Ressources Humaines',
     description: 'Gestion administrative du personnel, recrutement, formation et développement des compétences pour valoriser votre capital humain.',
     items: ['Paie et administration', 'Recrutement', 'Formation', 'Conseils RH'],
-    image: '/placeholder.svg'
+    image: getServiceImage('hr')
   }
 ];
 
@@ -65,7 +66,11 @@ export const useServicesPanel = () => {
         setServices(defaultServices);
       } else if (data && data.length > 0) {
         console.log('Services chargés depuis Supabase:', data.length);
-        setServices(data);
+        const dataWithImages = data.map(s => ({
+          ...s,
+          image: s.image && s.image !== '/placeholder.svg' ? s.image : getServiceImage(s.id)
+        }));
+        setServices(dataWithImages);
       } else {
         console.log('Aucun service trouvé dans Supabase, utilisation des services par défaut');
         setServices(defaultServices);

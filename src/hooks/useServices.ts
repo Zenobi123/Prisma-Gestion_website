@@ -3,6 +3,7 @@ import { useState, useEffect, useRef } from 'react';
 import { supabase } from '@/integrations/supabase/client';
 import { ServiceType } from '@/types/services';
 import { services as defaultServiceList } from '@/components/contact/form/ServiceSelector';
+import { getServiceImage } from '@/utils/serviceImages';
 import { useToast } from "@/hooks/use-toast";
 
 // Générer des services par défaut basés sur la liste complète des services
@@ -16,7 +17,7 @@ const defaultServices: ServiceType[] = defaultServiceList.map((service) => ({
     `Accompagnement personnalisé`,
     `Suivi et reporting`
   ],
-  image: '/placeholder.svg'
+  image: getServiceImage(service.value)
 }));
 
 export const useServices = () => {
@@ -71,9 +72,13 @@ export const useServices = () => {
       } else if (data && data.length > 0) {
         console.log('Services chargés depuis Supabase:', data.length);
         console.log('Services data:', data);
-        setServices(data);
+        const dataWithImages = data.map(s => ({
+          ...s,
+          image: s.image && s.image !== '/placeholder.svg' ? s.image : getServiceImage(s.id)
+        }));
+        setServices(dataWithImages);
         // Ne changez l'onglet actif que s'il n'est pas défini ou s'il ne fait plus partie des services disponibles
-        if (!activeTab || !data.find(service => service.id === activeTab)) {
+        if (!activeTab || !dataWithImages.find(service => service.id === activeTab)) {
           setActiveTab(data[0].id);
         }
       } else {
