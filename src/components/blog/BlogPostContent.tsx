@@ -8,11 +8,7 @@ interface BlogPostContentProps {
 
 const BlogPostContent: React.FC<BlogPostContentProps> = ({ content }) => {
   if (!content) {
-    return (
-      <div className="prose prose-lg w-full max-w-none">
-        <p className="text-gray-500 italic">Aucun contenu disponible pour cet article.</p>
-      </div>
-    );
+    return null;
   }
 
   // Préprocesser les liens pour qu'ils s'ouvrent correctement
