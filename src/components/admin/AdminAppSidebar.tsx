@@ -1,0 +1,95 @@
+
+import {
+  Home,
+  Users,
+  BookOpen,
+  Briefcase,
+  MessageSquare,
+  Image,
+  Search,
+  LogOut,
+  Globe,
+  Shield,
+  BarChart3,
+  HardDrive
+} from "lucide-react";
+import {
+  Sidebar,
+  SidebarContent,
+  SidebarGroup,
+  SidebarGroupContent,
+  SidebarGroupLabel,
+  SidebarMenu,
+  SidebarMenuButton,
+  SidebarMenuItem,
+} from "@/components/ui/sidebar";
+
+type AdminAppSidebarProps = {
+  activeTab: string;
+  setActiveTab: (tab: string) => void;
+  onLogout: () => void;
+};
+
+const AdminAppSidebar = ({ activeTab, setActiveTab, onLogout }: AdminAppSidebarProps) => {
+  const menuItems = [
+    { id: "dashboard", label: "Tableau de bord", icon: Home },
+    { id: "homepage", label: "Page d'accueil", icon: Globe },
+    { id: "users", label: "Utilisateurs", icon: Users },
+    { id: "blog", label: "Blog", icon: BookOpen },
+    { id: "services", label: "Services", icon: Briefcase },
+    { id: "media", label: "Médias", icon: Image },
+    { id: "messages", label: "Messages", icon: MessageSquare },
+    { id: "security", label: "Sécurité", icon: Shield },
+    { id: "analytics", label: "Analytics", icon: BarChart3 },
+    { id: "backup", label: "Sauvegarde", icon: HardDrive },
+    { id: "seo", label: "SEO", icon: Search },
+  ];
+
+  return (
+    <Sidebar className="border-r border-gray-200 bg-[#2E1A47]">
+      <SidebarContent className="bg-[#2E1A47]">
+        <div className="p-4 flex items-center justify-center border-b border-[#2E1A47]/30">
+          <span className="text-[#D6DD00] font-bold text-2xl">PRISMA</span>
+          <span className="text-white font-medium text-xl ml-2">Admin</span>
+        </div>
+
+        <SidebarGroup>
+          <SidebarGroupLabel className="text-white/60">Navigation</SidebarGroupLabel>
+          <SidebarGroupContent>
+            <SidebarMenu>
+              {menuItems.map((item) => (
+                <SidebarMenuItem key={item.id}>
+                  <SidebarMenuButton
+                    onClick={() => setActiveTab(item.id)}
+                    className={`
+                      flex items-center w-full p-3 rounded-lg text-sm transition-colors
+                      ${activeTab === item.id
+                        ? "bg-white/10 text-[#D6DD00]"
+                        : "text-white/80 hover:bg-white/5 hover:text-white"
+                      }
+                    `}
+                  >
+                    <item.icon size={18} className="mr-3" />
+                    {item.label}
+                  </SidebarMenuButton>
+                </SidebarMenuItem>
+              ))}
+            </SidebarMenu>
+          </SidebarGroupContent>
+        </SidebarGroup>
+
+        <div className="mt-auto p-4 border-t border-[#2E1A47]/30">
+          <SidebarMenuButton
+            onClick={onLogout}
+            className="flex items-center w-full p-3 rounded-lg text-sm text-white/80 hover:bg-white/5 hover:text-white transition-colors"
+          >
+            <LogOut size={18} className="mr-3" />
+            Déconnexion
+          </SidebarMenuButton>
+        </div>
+      </SidebarContent>
+    </Sidebar>
+  );
+};
+
+export default AdminAppSidebar;

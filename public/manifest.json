@@ -1,0 +1,17 @@
+
+{
+  "name": "PRISMA GESTION",
+  "short_name": "PRISMA",
+  "description": "Cabinet de services professionnels au Cameroun",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#2E1A47",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "64x64",
+      "type": "image/x-icon"
+    }
+  ]
+}
