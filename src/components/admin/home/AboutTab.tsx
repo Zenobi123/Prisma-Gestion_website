@@ -6,6 +6,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import ImageUploader from "../blog/form/ImageUploader";
 import { updateSectionContent, getSectionContent, AboutSectionContent } from "@/utils/siteSections";
+import aboutImage from "@/assets/about-prisma.jpg";
 
 const AboutTab = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -21,7 +22,7 @@ const AboutTab = () => {
     ],
     buttonText: "Découvrir nos services",
     buttonLink: "#services",
-    image: "https://images.unsplash.com/photo-1600880292089-90a7e086ee0c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+    image: aboutImage
   });
   
   const { toast } = useToast();

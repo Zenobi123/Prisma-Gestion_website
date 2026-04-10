@@ -2,6 +2,7 @@
 import { CheckCircle } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { getSectionContent, AboutSectionContent } from '@/utils/siteSections';
+import aboutImage from '@/assets/about-prisma.jpg';
 
 const defaultData: AboutSectionContent = {
   title: "À propos de PRISMA GESTION",
@@ -15,7 +16,7 @@ const defaultData: AboutSectionContent = {
   ],
   buttonText: "Découvrir nos services",
   buttonLink: "#services",
-  image: "https://images.unsplash.com/photo-1600880292089-90a7e086ee0c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+  image: aboutImage
 };
 
 const AboutSection = () => {
