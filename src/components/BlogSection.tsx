@@ -1,10 +1,53 @@
-
 import React, { useEffect, useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, ExternalLink } from 'lucide-react';
 import { getPublishedBlogPosts } from '@/services/blog/getBlogPosts';
 import { BlogPost } from '@/types/blog';
 import { supabase } from '@/integrations/supabase/client';
+
+interface OfficialWatchItem {
+  id: string;
+  source: string;
+  title: string;
+  description: string;
+  url: string;
+  image: string;
+}
+
+const officialWatchItems: OfficialWatchItem[] = [
+  {
+    id: 'impots-cm',
+    source: 'impots.cm',
+    title: 'Direction Générale des Impôts (Cameroun)',
+    description: 'Consultez les dernières parutions (documents, notes, actualités) publiées sur impots.cm.',
+    url: 'https://www.impots.cm',
+    image: 'https://images.unsplash.com/photo-1554224154-26032ff26273?auto=format&fit=crop&w=1200&q=70',
+  },
+  {
+    id: 'cnps-cm',
+    source: 'cnps.cm',
+    title: 'CNPS Cameroun',
+    description: 'Accédez aux nouveautés officielles de la CNPS : communiqués, documents et actualités sociales.',
+    url: 'https://www.cnps.cm',
+    image: 'https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1200&q=70',
+  },
+  {
+    id: 'egecam-cm',
+    source: 'egecam.cm',
+    title: 'eGCE / egecam.cm',
+    description: 'Suivez les dernières mises à jour du portail egecam.cm (annonces, procédures, informations utiles).',
+    url: 'https://egecam.cm',
+    image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1200&q=70',
+  },
+  {
+    id: 'dgi-facebook',
+    source: 'Facebook DGI CAM',
+    title: 'Page Facebook officielle DGI Cameroun',
+    description: 'Retrouvez les dernières publications et annonces postées sur la page Facebook de la DGI Cameroun.',
+    url: 'https://web.facebook.com/DGICAM',
+    image: 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=1200&q=70',
+  },
+];
 
 const BlogSection = () => {
   const [blogPosts, setBlogPosts] = useState<BlogPost[]>([]);
@@ -76,7 +119,6 @@ const BlogSection = () => {
     };
   }, []);
 
-  // Fonction de secours pour les images
   const getDefaultImage = (title: string): string => {
     if (title.includes("Impôt Général Synthétique")) {
       return "/lovable-uploads/a9b4950e-4e9a-4b2d-89ed-55266f59fd49.png";
@@ -144,6 +186,41 @@ const BlogSection = () => {
             <p className="text-gray-500">Aucun article publié pour le moment.</p>
           </div>
         )}
+
+        <div className="mt-12 md:mt-16">
+          <h3 className="text-2xl font-bold text-prisma-purple text-center mb-3">Veille réglementaire & actualités officielles</h3>
+          <p className="text-gray-600 text-center max-w-3xl mx-auto mb-8">
+            Quatre sources essentielles à consulter pour suivre les dernières publications utiles en fiscalité, social et administration.
+          </p>
+
+          <div className="grid sm:grid-cols-2 xl:grid-cols-4 gap-6">
+            {officialWatchItems.map((item) => (
+              <article key={item.id} className="bg-white rounded-xl overflow-hidden shadow-md transition-transform hover:shadow-lg hover:-translate-y-1">
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  className="w-full h-44 object-cover"
+                  loading="lazy"
+                />
+                <div className="p-5">
+                  <span className="inline-block bg-prisma-purple/10 text-prisma-purple text-xs font-medium px-2.5 py-1 rounded mb-3">
+                    {item.source}
+                  </span>
+                  <h4 className="font-semibold text-base text-prisma-purple mb-2">{item.title}</h4>
+                  <p className="text-gray-600 text-sm mb-4">{item.description}</p>
+                  <a
+                    href={item.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center text-prisma-chartreuse font-medium text-sm hover:underline"
+                  >
+                    Voir la dernière parution <ExternalLink size={15} className="ml-1" />
+                  </a>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
         
         {blogPosts.length > 0 && (
           <div className="mt-10 text-center">
