@@ -29,7 +29,7 @@ export class CryptoService {
 
     return await crypto.subtle.deriveKey({
       name: 'PBKDF2',
-      salt: salt,
+      salt: salt as unknown as BufferSource,
       iterations: 100000,
       hash: 'SHA-256'
     }, baseKey, {
@@ -61,7 +61,7 @@ export class CryptoService {
     try {
       const decrypted = await crypto.subtle.decrypt({
         name: this.ALGORITHM,
-        iv: iv
+        iv: iv as unknown as BufferSource
       }, key, encryptedData);
 
       return new TextDecoder().decode(decrypted);
@@ -91,7 +91,7 @@ export class CryptoService {
 
     const hashBuffer = await crypto.subtle.deriveBits({
       name: 'PBKDF2',
-      salt: actualSalt,
+      salt: actualSalt as unknown as BufferSource,
       iterations: 100000,
       hash: 'SHA-256'
     }, key, 256);
