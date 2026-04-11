@@ -7,6 +7,7 @@ import BlogCard from '@/components/blog/BlogCard';
 import { BlogPost } from '@/types/blog';
 import { getPublishedBlogPosts } from '@/services/blog/getBlogPosts';
 import { usePageMetadata } from '@/hooks/usePageMetadata';
+import { SiteBreadcrumb } from '@/components/ui/SiteBreadcrumb';
 
 const Blog = () => {
   const [posts, setPosts] = useState<BlogPost[]>([]);
@@ -62,6 +63,9 @@ const Blog = () => {
       <Navbar />
       <main className="pt-24 xs:pt-28 md:pt-36 lg:pt-44 pb-16">
         <div className="container mx-auto px-4">
+          <div className="mb-8">
+            <SiteBreadcrumb items={[{ label: "Blog" }]} />
+          </div>
           <div className="text-center mb-12">
             <h1 className="text-4xl md:text-5xl font-heading font-bold text-prisma-purple mb-4">
               Notre Blog

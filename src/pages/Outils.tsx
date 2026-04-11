@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Calculator, FileText, Briefcase, Globe } from "lucide-react";
 import { Link } from "react-router-dom";
+import { SiteBreadcrumb } from "@/components/ui/SiteBreadcrumb";
 
 const Outils = () => {
   return (
@@ -21,6 +22,9 @@ const Outils = () => {
         {/* Hero Section */}
         <section className="bg-prisma-purple pt-24 xs:pt-28 md:pt-36 lg:pt-44 pb-16 text-white">
           <div className="section">
+            <div className="mb-8">
+              <SiteBreadcrumb items={[{ label: "Outils Pratiques" }]} className="text-white/80 [&_a]:text-white/80 hover:[&_a]:text-white [&_span[aria-current]]:text-white" />
+            </div>
             <h1 className="heading-lg mb-4">Outils Pratiques</h1>
             <p className="max-w-2xl text-lg opacity-90">
               Des outils spécialement conçus pour les entrepreneurs et entreprises camerounaises.

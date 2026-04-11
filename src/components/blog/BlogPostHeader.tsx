@@ -3,6 +3,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { Calendar, User, ArrowLeft } from "lucide-react";
 import { BlogPost } from "@/types/blog";
+import { SiteBreadcrumb } from "@/components/ui/SiteBreadcrumb";
 
 interface BlogPostHeaderProps {
   post: BlogPost;
@@ -11,14 +12,22 @@ interface BlogPostHeaderProps {
 
 const BlogPostHeader: React.FC<BlogPostHeaderProps> = ({ post, onBackClick }) => (
   <div className="mb-8">
-    <button 
-      onClick={onBackClick}
-      className="inline-flex items-center text-prisma-purple font-medium hover:text-prisma-purple/80 mb-6"
-      aria-label="Retour aux articles"
-    >
-      <ArrowLeft size={18} className="mr-2" />
-      Retour aux articles
-    </button>
+    <div className="mb-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+      <SiteBreadcrumb
+        items={[
+          { label: "Blog", href: "/blog" },
+          { label: post.title }
+        ]}
+      />
+      <button
+        onClick={onBackClick}
+        className="inline-flex items-center text-prisma-purple font-medium hover:text-prisma-purple/80 shrink-0"
+        aria-label="Retour aux articles"
+      >
+        <ArrowLeft size={18} className="mr-2" />
+        Retour aux articles
+      </button>
+    </div>
     <div className="bg-white rounded-xl shadow-md overflow-hidden">
       {post.image && (
         <div className="w-full h-[300px] md:h-[400px] relative">

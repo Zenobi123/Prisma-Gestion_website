@@ -7,6 +7,7 @@ import Footer from "@/components/Footer";
 import TaxCalculator from "@/components/calculateur/TaxCalculator";
 import { ChevronLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { SiteBreadcrumb } from "@/components/ui/SiteBreadcrumb";
 
 const CalculateurImpots = () => {
   const navigate = useNavigate();
@@ -28,6 +29,15 @@ const CalculateurImpots = () => {
         {/* Hero Section */}
         <section className="bg-prisma-purple pt-24 xs:pt-28 md:pt-36 lg:pt-44 pb-12 text-white">
           <div className="section">
+            <div className="mb-4">
+              <SiteBreadcrumb
+                items={[
+                  { label: "Outils Pratiques", href: "/outils" },
+                  { label: "Calculateur IGS" }
+                ]}
+                className="text-white/80 [&_a]:text-white/80 hover:[&_a]:text-white [&_span[aria-current]]:text-white"
+              />
+            </div>
             <Button 
               variant="ghost" 
               className="text-white hover:bg-prisma-purple/20 mb-4 -ml-2 flex items-center" 
