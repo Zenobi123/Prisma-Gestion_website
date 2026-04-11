@@ -41,7 +41,7 @@ export function useQuoteForm(serviceTitle?: string) {
   const { toast } = useToast();
 
   useEffect(() => {
-    if (serviceTitle && !formData.service) {
+    if (serviceTitle) {
       setFormData(prev => ({
         ...prev,
         service: serviceTitle
@@ -50,7 +50,10 @@ export function useQuoteForm(serviceTitle?: string) {
   }, [serviceTitle]);
 
   const resetForm = () => {
-    setFormData(initialFormState);
+    setFormData({
+      ...initialFormState,
+      service: serviceTitle || ""
+    });
     setErrors(initialErrorState);
     setSent(false);
   };
