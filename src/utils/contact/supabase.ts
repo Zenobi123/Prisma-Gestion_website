@@ -2,6 +2,7 @@
 import { supabase } from "@/integrations/supabase/client";
 import type { ContactFormData, ContactMessage } from "./types";
 import { triggerContactMessagesUpdated } from "./events";
+import { sendContactEmail } from "@/utils/email/sendEmail";
 
 // Sauvegarder un message de contact
 export const saveContactMessage = async (formData: ContactFormData): Promise<ContactMessage> => {
@@ -16,17 +17,33 @@ export const saveContactMessage = async (formData: ContactFormData): Promise<Con
       message: formData.message,
       // Les champs date et read sont définis par défaut dans la base de données
     };
-    
+
     console.log('Tentative de sauvegarde du message dans Supabase:', messageData);
-    
+
     // Insérer dans Supabase
     const { data, error } = await supabase
       .from('contact_messages')
       .insert(messageData)
       .select('*')
       .single();
-    
+
     if (error) {
+      // Supabase désactivé : envoi par email directement
+      if ((error as { code?: string }).code === 'SUPABASE_DISABLED') {
+        console.log('Supabase désactivé – envoi du message par email.');
+        await sendContactEmail(formData);
+        return {
+          id: `local-${Date.now()}`,
+          firstName: formData.firstName,
+          lastName: formData.lastName,
+          email: formData.email,
+          whatsapp: formData.whatsapp,
+          subject: formData.subject,
+          message: formData.message,
+          date: new Date().toISOString(),
+          read: false,
+        };
+      }
       console.error('Erreur lors de la sauvegarde du message dans Supabase:', error);
       throw new Error(error.message);
     }
