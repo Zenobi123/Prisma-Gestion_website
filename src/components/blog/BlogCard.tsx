@@ -22,7 +22,7 @@ const BlogCard: React.FC<BlogCardProps> = ({ post, featured = false }) => {
           <OptimizedImage 
             src={post.image} 
             alt={post.title}
-            className={`w-full object-cover ${featured ? "h-64 md:h-full" : "h-48"}`}
+            className={`w-full object-cover object-top ${featured ? "h-64 md:h-full" : "h-48"}`}
             fallback="/placeholder.svg"
             loading="lazy"
           />
