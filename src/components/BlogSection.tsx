@@ -84,6 +84,14 @@ const BlogSection = () => {
       return "/lovable-uploads/4d9dc424-4eb4-4aca-aba9-e462d333f67c.png";
     } else if (title.includes("Les avantages de la comptabilité")) {
       return "/lovable-uploads/85999c6b-953e-4905-b204-fec3dfc4e72f.png";
+    } else if (title.toLowerCase().includes("veille") && title.toLowerCase().includes("impot")) {
+      return "/blog-images/veille-impots.jpg";
+    } else if (title.toLowerCase().includes("veille") && title.toLowerCase().includes("cnps")) {
+      return "/blog-images/veille-cnps.jpg";
+    } else if (title.toLowerCase().includes("veille") && title.toLowerCase().includes("egecam")) {
+      return "/blog-images/veille-egecam.jpg";
+    } else if (title.toLowerCase().includes("veille") && title.toLowerCase().includes("dgicam")) {
+      return "/blog-images/veille-dgicam.jpg";
     }
     return "/placeholder.svg";
   };
