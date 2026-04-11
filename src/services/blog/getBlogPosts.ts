@@ -106,7 +106,7 @@ export const DEFAULT_BLOG_POSTS: BlogPost[] = [
       <div class="bg-gray-50">
         <h3>Lien direct</h3>
         <ul>
-          <li><a href="https://web.facebook.com/DGICAM" target="_blank" rel="noopener noreferrer">Page Facebook DGICAM</a></li>
+          <li><a href="https://www.facebook.com/DGICAM" target="_blank" rel="noopener noreferrer">Page Facebook DGICAM</a></li>
         </ul>
       </div>
       <p>
