@@ -6,7 +6,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import ImageUploader from "../blog/form/ImageUploader";
 import { updateSectionContent, getSectionContent, AboutSectionContent } from "@/utils/siteSections";
-import aboutImage from "@/assets/about-prisma.jpg";
+import aboutImage from "@/assets/about-prisma-new.jpg";
 
 const AboutTab = () => {
   const [isLoading, setIsLoading] = useState(true);

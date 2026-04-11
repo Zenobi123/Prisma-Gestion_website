@@ -2,7 +2,7 @@
 import { CheckCircle } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { getSectionContent, AboutSectionContent } from '@/utils/siteSections';
-import aboutImage from '@/assets/about-prisma.jpg';
+import aboutImage from '@/assets/about-prisma-new.jpg';
 
 const defaultData: AboutSectionContent = {
   title: "À propos de PRISMA GESTION",
