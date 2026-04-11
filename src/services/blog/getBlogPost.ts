@@ -36,20 +36,21 @@ export const getBlogPostBySlug = async (slug: string): Promise<BlogPost | null> 
     }
 
     const defaultImage = getDefaultImageForTitle(data.title);
+    const defaultPost = DEFAULT_BLOG_POSTS.find(p => p.slug === data.slug);
 
     return {
       id: data.id,
       title: data.title,
-      excerpt: data.excerpt || "",
-      content: data.content || "",
-      author: data.author || "",
-      publishDate: data.publish_date || new Date().toISOString().split('T')[0],
-      status: data.status as BlogPostStatus || "Brouillon",
-      image: data.image || defaultImage,
+      excerpt: data.excerpt || defaultPost?.excerpt || "",
+      content: data.content || defaultPost?.content || "",
+      author: data.author || defaultPost?.author || "",
+      publishDate: data.publish_date || defaultPost?.publishDate || new Date().toISOString().split('T')[0],
+      status: data.status as BlogPostStatus || defaultPost?.status || "Brouillon",
+      image: data.image || defaultImage || defaultPost?.image,
       slug: data.slug,
-      tags: Array.isArray(data.tags) ? data.tags : [],
-      seoTitle: data.seo_title || "",
-      seoDescription: data.seo_description || "",
+      tags: Array.isArray(data.tags) ? data.tags : defaultPost?.tags || [],
+      seoTitle: data.seo_title || defaultPost?.seoTitle || "",
+      seoDescription: data.seo_description || defaultPost?.seoDescription || "",
     };
   } catch (error) {
     console.error(`Erreur lors de la récupération de l'article avec slug "${slug}":`, error);

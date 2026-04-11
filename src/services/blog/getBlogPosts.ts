@@ -126,43 +126,96 @@ export const DEFAULT_BLOG_POSTS: BlogPost[] = [
     id: -1,
     title: "Les avantages de la comptabilité en ligne",
     excerpt: "Pourquoi passer à la comptabilité informatisée en 2025.",
-    content: "",
+    content: `
+      <h2>Pourquoi opter pour la comptabilité en ligne ?</h2>
+      <p>
+        La gestion financière de votre entreprise est une tâche cruciale, et le passage à la comptabilité en ligne offre de nombreux avantages.
+        En 2025, la dématérialisation et l'automatisation deviennent des éléments incontournables de la croissance des PME.
+      </p>
+      <div class="bg-gray-50">
+        <h3>Les bénéfices principaux :</h3>
+        <ul>
+          <li><strong>Gain de temps</strong> : Automatisation de la saisie des données.</li>
+          <li><strong>Accessibilité</strong> : Vos données disponibles 24/7 de n'importe où.</li>
+          <li><strong>Sécurité</strong> : Sauvegarde automatique et protection des données dans le cloud.</li>
+          <li><strong>Collaboration facilitée</strong> : Accès partagé avec votre expert-comptable.</li>
+        </ul>
+      </div>
+      <p>
+        Passez à la comptabilité en ligne et facilitez-vous la vie avec Prisma Gestion !
+      </p>
+    `,
     author: "Nathan OBIANG TIME",
     publishDate: "2025-04-22",
     status: "Publié",
     image: "/lovable-uploads/85999c6b-953e-4905-b204-fec3dfc4e72f.png",
     slug: "avantages-comptabilite-en-ligne",
     tags: ["Comptabilité"],
-    seoTitle: "",
-    seoDescription: "",
+    seoTitle: "Les avantages de la comptabilité en ligne en 2025",
+    seoDescription: "Découvrez pourquoi passer à la comptabilité informatisée en 2025 peut transformer votre entreprise.",
   },
   {
     id: -2,
     title: "Les nouvelles normes fiscales et comptables pour 2025",
     excerpt: "Lois des finances 2025, ce que vous devez savoir.",
-    content: "",
+    content: `
+      <h2>Lois des finances 2025 : Quoi de neuf ?</h2>
+      <p>
+        Chaque année, de nouvelles lois des finances sont votées, modifiant ainsi le paysage fiscal et comptable des entreprises.
+        Pour 2025, plusieurs changements majeurs ont été introduits et il est essentiel d'être bien informé pour rester conforme.
+      </p>
+      <div class="bg-gray-50">
+        <h3>Principaux changements :</h3>
+        <ul>
+          <li>Mise à jour des taux d'imposition sur les sociétés.</li>
+          <li>Nouvelles déductions fiscales pour les investissements éco-responsables.</li>
+          <li>Changements dans la déclaration de la TVA et des obligations de reporting.</li>
+          <li>Modifications liées à la loi de finances concernant les TPE/PME.</li>
+        </ul>
+      </div>
+      <p>
+        Contactez Prisma Gestion pour vous assurer d'être en totale conformité avec les nouvelles règles.
+      </p>
+    `,
     author: "Nathan OBIANG TIME",
     publishDate: "2025-04-22",
     status: "Publié",
     image: "/lovable-uploads/4d9dc424-4eb4-4aca-aba9-e462d333f67c.png",
     slug: "nouvelles-normes-fiscales-2025",
     tags: ["Fiscalité"],
-    seoTitle: "",
-    seoDescription: "",
+    seoTitle: "Nouvelles normes fiscales et comptables 2025",
+    seoDescription: "Tout ce que vous devez savoir sur la loi de finances 2025 et les nouvelles obligations fiscales.",
   },
   {
     id: -3,
     title: "Impôt Général Synthétique (IGS)",
     excerpt: "IGS, ce qui change.",
-    content: "",
+    content: `
+      <h2>Comprendre l'Impôt Général Synthétique (IGS)</h2>
+      <p>
+        L'Impôt Général Synthétique (IGS) remplace plusieurs taxes et impôts pour simplifier les obligations fiscales
+        des petites entreprises. Mais quels sont exactement les changements et qui est concerné ?
+      </p>
+      <div class="bg-gray-50">
+        <h3>Ce que vous devez savoir sur l'IGS :</h3>
+        <ul>
+          <li><strong>Simplification</strong> : Un impôt unique en remplacement de la patente, de l'IRPP, de la TVA (sous certains seuils), etc.</li>
+          <li><strong>Assiette fiscale</strong> : Le calcul est basé sur le chiffre d'affaires.</li>
+          <li><strong>Modalités de paiement</strong> : Un échéancier souvent plus adapté aux petites structures.</li>
+        </ul>
+      </div>
+      <p>
+        Notre équipe d'experts est à votre disposition pour analyser votre éligibilité à l'IGS et optimiser votre situation fiscale.
+      </p>
+    `,
     author: "Nathan OBIANG TIME",
     publishDate: "2025-04-22",
     status: "Publié",
     image: "/lovable-uploads/a9b4950e-4e9a-4b2d-89ed-55266f59fd49.png",
     slug: "impot-general-synthetique-igs",
     tags: ["Fiscalité"],
-    seoTitle: "",
-    seoDescription: "",
+    seoTitle: "Impôt Général Synthétique (IGS) : Ce qui change",
+    seoDescription: "Découvrez l'Impôt Général Synthétique (IGS), comment il fonctionne et ce qui change pour les entreprises.",
   }
 ];
 
@@ -250,20 +303,21 @@ export const getBlogPosts = async (): Promise<BlogPost[]> => {
     const posts = data.map(post => {
       // Utiliser directement la fonction utilitaire sans appel asynchrone
       const defaultImage = getDefaultImageForTitle(post.title);
+      const defaultPost = DEFAULT_BLOG_POSTS.find(p => p.slug === post.slug);
       
       return {
         id: post.id,
         title: post.title,
-        excerpt: post.excerpt || "",
-        content: post.content || "",
-        author: post.author || "",
-        publishDate: post.publish_date || new Date().toISOString().split('T')[0],
-        status: post.status as BlogPostStatus || "Brouillon",
-        image: post.image || defaultImage,
+        excerpt: post.excerpt || defaultPost?.excerpt || "",
+        content: post.content || defaultPost?.content || "",
+        author: post.author || defaultPost?.author || "",
+        publishDate: post.publish_date || defaultPost?.publishDate || new Date().toISOString().split('T')[0],
+        status: post.status as BlogPostStatus || defaultPost?.status || "Brouillon",
+        image: post.image || defaultImage || defaultPost?.image,
         slug: post.slug || "",
-        tags: Array.isArray(post.tags) ? post.tags : [],
-        seoTitle: post.seo_title || "",
-        seoDescription: post.seo_description || "",
+        tags: Array.isArray(post.tags) ? post.tags : defaultPost?.tags || [],
+        seoTitle: post.seo_title || defaultPost?.seoTitle || "",
+        seoDescription: post.seo_description || defaultPost?.seoDescription || "",
       };
     });
 
@@ -300,20 +354,21 @@ export const getPublishedBlogPosts = async (): Promise<BlogPost[]> => {
     return data.map(post => {
       // Utiliser directement la fonction utilitaire sans appel asynchrone
       const defaultImage = getDefaultImageForTitle(post.title);
+      const defaultPost = DEFAULT_BLOG_POSTS.find(p => p.slug === post.slug);
       
       return {
         id: post.id,
         title: post.title,
-        excerpt: post.excerpt || "",
-        content: post.content || "",
-        author: post.author || "",
-        publishDate: post.publish_date || new Date().toISOString().split('T')[0],
-        status: post.status as BlogPostStatus || "Brouillon",
-        image: post.image || defaultImage,
+        excerpt: post.excerpt || defaultPost?.excerpt || "",
+        content: post.content || defaultPost?.content || "",
+        author: post.author || defaultPost?.author || "",
+        publishDate: post.publish_date || defaultPost?.publishDate || new Date().toISOString().split('T')[0],
+        status: post.status as BlogPostStatus || defaultPost?.status || "Brouillon",
+        image: post.image || defaultImage || defaultPost?.image,
         slug: post.slug || "",
-        tags: Array.isArray(post.tags) ? post.tags : [],
-        seoTitle: post.seo_title || "",
-        seoDescription: post.seo_description || "",
+        tags: Array.isArray(post.tags) ? post.tags : defaultPost?.tags || [],
+        seoTitle: post.seo_title || defaultPost?.seoTitle || "",
+        seoDescription: post.seo_description || defaultPost?.seoDescription || "",
       };
     });
   } catch (error) {
