@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import { AuthProvider } from '@/contexts/AuthContext';
 import ProtectedRoute from '@/components/auth/ProtectedRoute';
+import { usePWAUpdate } from '@/components/PWAUpdater';
 
 // Eager-load the Index page for faster initial render
 import Index from './pages/Index';
@@ -38,6 +39,8 @@ function App() {
   useEffect(() => {
     prefetchRoutes();
   }, []);
+
+  usePWAUpdate();
 
   return (
     <HelmetProvider>
