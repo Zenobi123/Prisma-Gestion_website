@@ -24,7 +24,7 @@ export const ChatMessage = ({ message }: MessageProps) => {
         <div
           className={`inline-block p-3 rounded-lg text-sm ${
             message.isBot
-              ? 'bg-gray-100 text-gray-800'
+              ? 'bg-gray-200 text-gray-900'
               : 'bg-prisma-purple text-white'
           }`}
         >
