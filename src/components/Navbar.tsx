@@ -22,11 +22,11 @@ const Navbar = () => {
   const navigate = useNavigate();
   const { user, signOut, loading } = useAuth();
   
-  // Déterminer si la page actuelle est une page de blog
-  const isBlogPost = location.pathname.includes('/blog/');
+  // Déterminer si la page actuelle est une page de blog (index ou post)
+  const isBlogPage = location.pathname.startsWith('/blog');
   
-  // Forcer le mode scrollé pour les pages de blog post
-  const shouldForceScrolled = isBlogPost;
+  // Forcer le mode scrollé pour les pages de blog
+  const shouldForceScrolled = isBlogPage;
 
   useEffect(() => {
     const handleScroll = () => {
