@@ -1,6 +1,7 @@
 
 import { supabase } from "@/integrations/supabase/client";
 import { Appointment, AppointmentFormData, AppointmentStatus } from './types';
+import { sendAppointmentEmail } from '@/utils/email/sendEmail';
 
 export const saveAppointment = async (formData: AppointmentFormData): Promise<Appointment> => {
   try {
@@ -21,6 +22,22 @@ export const saveAppointment = async (formData: AppointmentFormData): Promise<Ap
       .single();
     
     if (error) {
+      // Supabase désactivé : envoi par email directement
+      if ((error as { code?: string }).code === 'SUPABASE_DISABLED') {
+        console.log('Supabase désactivé – envoi du rendez-vous par email.');
+        await sendAppointmentEmail(formData);
+        return {
+          id: `appointment-${Date.now()}`,
+          fullName: formData.fullName,
+          phone: formData.phone,
+          subject: formData.subject,
+          date: formData.date,
+          time: formData.time,
+          message: formData.message,
+          createdAt: new Date().toISOString(),
+          status: 'pending',
+        };
+      }
       console.error('Erreur lors de la sauvegarde du rendez-vous dans Supabase:', error);
       throw new Error(error.message);
     }
