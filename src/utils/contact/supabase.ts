@@ -164,7 +164,7 @@ export const setupStorageListener = () => {
   
   // Abonnement aux mises à jour en temps réel de Supabase
   const channel = supabase
-    .channel('schema-db-changes')
+    .channel('contact-messages-storage-changes')
     .on(
       'postgres_changes',
       {

@@ -96,7 +96,7 @@ const AppointmentsPanel = () => {
     
     // Configuration d'un écouteur pour les mises à jour en temps réel
     const channel = supabase
-      .channel('schema-db-changes')
+      .channel('admin-appointments-changes')
       .on(
         'postgres_changes',
         {
