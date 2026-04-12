@@ -25,7 +25,7 @@ export const AdminPerformanceMonitor = () => {
   // Show only in development or if there are issues
   useEffect(() => {
     setIsVisible(
-      process.env.NODE_ENV === 'development' || 
+      import.meta.env.DEV || 
       errorCount > 0 || 
       realtimeConnections > 10
     );
@@ -51,7 +51,7 @@ export const AdminPerformanceMonitor = () => {
             {errorCount}
           </Badge>
         </div>
-        {process.env.NODE_ENV === 'development' && (
+        {import.meta.env.DEV && (
           <div className="text-xs text-blue-600 mt-2">
             Mode développement
           </div>

@@ -52,7 +52,7 @@ export class ErrorBoundary extends Component<Props, State> {
             <p className="text-gray-600">
               Quelque chose s'est mal passé. Veuillez réessayer ou contacter le support si le problème persiste.
             </p>
-            {process.env.NODE_ENV === 'development' && this.state.error && (
+            {import.meta.env.DEV && this.state.error && (
               <details className="bg-gray-100 p-3 rounded text-sm">
                 <summary className="cursor-pointer font-medium">Détails de l'erreur</summary>
                 <pre className="mt-2 whitespace-pre-wrap">{this.state.error.toString()}</pre>

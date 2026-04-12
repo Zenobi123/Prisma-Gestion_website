@@ -4,8 +4,8 @@ import { clearSectionsCache } from '@/utils/siteSections';
 
 export const useHomeContentManager = () => {
   const isFirstLoad = useRef(true);
-  const timeoutRef = useRef<NodeJS.Timeout>();
-  const intervalRef = useRef<NodeJS.Timeout>();
+  const timeoutRef = useRef<ReturnType<typeof setTimeout>>();
+  const intervalRef = useRef<ReturnType<typeof setInterval>>();
 
   const dispatchUpdateEvent = useCallback(() => {
     console.log("Déclenchement de la mise à jour du contenu de la page d'accueil");

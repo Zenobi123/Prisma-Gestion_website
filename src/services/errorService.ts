@@ -53,12 +53,12 @@ export class ErrorService {
       }
 
       // Log to console in development
-      if (process.env.NODE_ENV === 'development') {
+      if (import.meta.env.DEV) {
         console.error('Error logged:', errorLog);
       }
 
       // En production, vous pourriez envoyer vers un service externe
-      if (process.env.NODE_ENV === 'production' && level === 'error') {
+      if (import.meta.env.PROD && level === 'error') {
         this.sendToExternalService(errorLog);
       }
     } catch (loggingError) {

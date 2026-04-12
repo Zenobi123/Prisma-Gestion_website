@@ -59,7 +59,7 @@ export class SecurityMonitoringService {
     }
 
     // Log dans la console en développement
-    if (process.env.NODE_ENV === 'development') {
+    if (import.meta.env.DEV) {
       console.warn(`[SECURITY] ${severity.toUpperCase()}: ${description}`, event);
     }
   }
