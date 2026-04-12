@@ -34,8 +34,8 @@ export const validateContactForm = (formData: ContactFormData): {
     errors.whatsapp = "Le numéro WhatsApp est requis";
   } else {
     // Validation basique de numéro WhatsApp
-    const cleanedNumber = formData.whatsapp.replace(/\s+/g, '');
-    const phoneRegex = /^\d{9,15}$/;
+    const cleanedNumber = formData.whatsapp.replace(/[\s\-()]/g, '');
+    const phoneRegex = /^\+?\d{9,15}$/;
     if (!phoneRegex.test(cleanedNumber)) {
       errors.whatsapp = "Veuillez entrer un numéro WhatsApp valide (minimum 9 chiffres)";
     }
