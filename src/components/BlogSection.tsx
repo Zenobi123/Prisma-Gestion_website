@@ -39,7 +39,7 @@ const BlogSection = () => {
     fetchPosts();
     
     channelRef.current = supabase
-      .channel('schema-db-changes')
+      .channel('blog-posts-changes')
       .on(
         'postgres_changes',
         {

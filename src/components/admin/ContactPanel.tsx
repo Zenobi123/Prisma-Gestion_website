@@ -49,7 +49,7 @@ const ContactPanel = () => {
     
     // Configurer les écouteurs d'événements pour les mises à jour en temps réel de Supabase
     const channel = supabase
-      .channel('schema-db-changes')
+      .channel('admin-contact-messages-changes')
       .on(
         'postgres_changes',
         {
