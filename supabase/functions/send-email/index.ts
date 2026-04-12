@@ -4,7 +4,7 @@ const corsHeaders = {
 }
 
 const RESEND_API_KEY = Deno.env.get('RESEND_API_KEY')
-const FROM_EMAIL = 'PRISMA GESTION <noreply@nobiangtime.com>'
+const FROM_EMAIL = 'PRISMA GESTION <onboarding@resend.dev>'
 const TO_EMAIL = 'obiangtimenathan@gmail.com'
 
 const SERVICE_LABELS: Record<string, string> = {
