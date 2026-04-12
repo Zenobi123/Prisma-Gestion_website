@@ -66,19 +66,19 @@ export const DEFAULT_BLOG_POSTS: BlogPost[] = [
   },
   {
     id: -12,
-    title: "Veille egecam.cm : nouveaux documents et annonces",
-    excerpt: "Un point d'accès direct vers la dernière publication visible sur egecam.cm.",
+    title: "Veille legecam.cm : nouveaux documents et annonces",
+    excerpt: "Un point d'accès direct vers la dernière publication visible sur legecam.cm.",
     content: `
-      <h2>Dernières parutions de egecam.cm</h2>
+      <h2>Dernières parutions de legecam.cm</h2>
       <p>
         Utilisez cette page pour accéder en un clic aux nouveautés publiées par EGECAM.
       </p>
       <div class="bg-gray-50">
         <h3>Accès rapide</h3>
         <ul>
-          <li><a href="https://egecam.cm/" target="_blank" rel="noopener noreferrer">Page d'accueil egecam.cm</a></li>
-          <li><a href="https://egecam.cm/category/actualites/" target="_blank" rel="noopener noreferrer">Rubrique actualités</a></li>
-          <li><a href="https://egecam.cm/category/documents/" target="_blank" rel="noopener noreferrer">Rubrique documents</a></li>
+          <li><a href="https://legecam.cm/" target="_blank" rel="noopener noreferrer">Page d'accueil legecam.cm</a></li>
+          <li><a href="https://legecam.cm/category/actualites/" target="_blank" rel="noopener noreferrer">Rubrique actualités</a></li>
+          <li><a href="https://legecam.cm/category/documents/" target="_blank" rel="noopener noreferrer">Rubrique documents</a></li>
         </ul>
       </div>
       <p>
@@ -91,8 +91,8 @@ export const DEFAULT_BLOG_POSTS: BlogPost[] = [
     image: "/blog-images/veille-egecam.jpg",
     slug: "veille-egecam-cm-documents-annonces",
     tags: ["Veille", "Institutionnel"],
-    seoTitle: "Veille egecam.cm : nouveaux documents et annonces",
-    seoDescription: "Suivi des dernières publications de egecam.cm (documents, actualités, annonces)."
+    seoTitle: "Veille legecam.cm : nouveaux documents et annonces",
+    seoDescription: "Suivi des dernières publications de legecam.cm (documents, actualités, annonces)."
   },
   {
     id: -13,
