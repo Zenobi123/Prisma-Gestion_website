@@ -88,8 +88,8 @@ export const DEFAULT_BLOG_POSTS: BlogPost[] = [
     author: "PRISMA GESTION",
     publishDate: "2026-04-10",
     status: "Publié",
-    image: "/blog-images/veille-egecam.jpg",
-    slug: "veille-egecam-cm-documents-annonces",
+    image: "/blog-images/veille-legecam.jpg",
+    slug: "veille-legecam-cm-documents-annonces",
     tags: ["Veille", "Institutionnel"],
     seoTitle: "Veille legecam.cm : nouveaux documents et annonces",
     seoDescription: "Suivi des dernières publications de legecam.cm (documents, actualités, annonces)."
@@ -358,8 +358,8 @@ const getDefaultImageForTitle = (title: string): string => {
     return "/blog-images/veille-impots.jpg";
   } else if (title.toLowerCase().includes("veille") && title.toLowerCase().includes("cnps")) {
     return "/blog-images/veille-cnps.jpg";
-  } else if (title.toLowerCase().includes("veille") && title.toLowerCase().includes("egecam")) {
-    return "/blog-images/veille-egecam.jpg";
+  } else if (title.toLowerCase().includes("veille") && title.toLowerCase().includes("legecam")) {
+    return "/blog-images/veille-legecam.jpg";
   } else if (title.toLowerCase().includes("veille") && title.toLowerCase().includes("dgicam")) {
     return "/blog-images/veille-dgicam.jpg";
   }

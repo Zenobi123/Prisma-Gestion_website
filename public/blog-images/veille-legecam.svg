@@ -29,7 +29,7 @@
 
   <!-- Badge -->
   <rect x="430" y="100" width="140" height="32" rx="16" fill="rgba(255,255,255,0.15)"/>
-  <text x="500" y="121" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle" letter-spacing="1">EGECAM.CM</text>
+  <text x="500" y="121" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle" letter-spacing="1">LEGECAM.CM</text>
 
   <!-- Title -->
   <text x="600" y="496" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="white" text-anchor="middle" letter-spacing="2">VEILLE COMPTABLE</text>

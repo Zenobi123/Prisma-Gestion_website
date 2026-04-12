@@ -88,8 +88,8 @@ const BlogSection = () => {
       return "/blog-images/veille-impots.jpg";
     } else if (title.toLowerCase().includes("veille") && title.toLowerCase().includes("cnps")) {
       return "/blog-images/veille-cnps.jpg";
-    } else if (title.toLowerCase().includes("veille") && title.toLowerCase().includes("egecam")) {
-      return "/blog-images/veille-egecam.jpg";
+    } else if (title.toLowerCase().includes("veille") && title.toLowerCase().includes("legecam")) {
+      return "/blog-images/veille-legecam.jpg";
     } else if (title.toLowerCase().includes("veille") && title.toLowerCase().includes("dgicam")) {
       return "/blog-images/veille-dgicam.jpg";
     }
